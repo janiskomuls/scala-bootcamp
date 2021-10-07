@@ -1,10 +1,8 @@
 package com.evolution.user
 
-import com.evolution.user.group.GroupDto
-import com.evolution.infrastructure.http.Controller
-import com.evolution.user.permission.PermissionDto
 import com.evolution.user.domain._
-import com.evolution.user.report.ReportId
+import com.evolution.user.group.GroupDto
+import com.evolution.user.permission.PermissionDto
 
 import java.util.UUID
 

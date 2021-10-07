@@ -1,8 +1,7 @@
 package com.evolution.user.report
 
-import com.evolution.infrastructure.http.Controller
-import com.evolution.user.UserService
 import com.evolution.user.domain.UserId
+import com.evolution.user.{Controller, UserService}
 
 class UserReportController(
     userService: UserService,

@@ -1,9 +1,8 @@
 package com.evolution.user.assignment
 
 import com.evolution.user.group.domain.GroupName
-import com.evolution.infrastructure.http.Controller
 import com.evolution.user.permission.domain.PermissionName
-import com.evolution.user.UserService
+import com.evolution.user.{Controller, UserService}
 
 class AssignmentController(
     userService: UserService,

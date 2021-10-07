@@ -1,6 +1,5 @@
 package com.evolution.user
 
-import com.evolution.casino.domain.CasinoId
 import com.evolution.user.domain._
 import com.evolution.user.group.domain.Group
 import com.evolution.user.permission.domain.Permission
@@ -18,8 +17,6 @@ class UserRepository extends AbstractRepository {
 
   def addGroup(value: Group): Unit = ()
   def deleteGroup(value: Group): Unit = ()
-
-  def casinoUsersCount(casinoId: CasinoId): Int = 0
 }
 
 /*

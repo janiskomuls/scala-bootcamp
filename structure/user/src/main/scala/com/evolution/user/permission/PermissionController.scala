@@ -1,6 +1,6 @@
 package com.evolution.user.permission
 
-import com.evolution.infrastructure.http.Controller
+import com.evolution.user.Controller
 import com.evolution.user.permission.domain.{Permission, PermissionName}
 
 class PermissionController(permissionService: PermissionService)

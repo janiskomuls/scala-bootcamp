@@ -2,7 +2,6 @@ package com.evolution.casino
 
 import com.evolution.casino.CasinoController.CasinoDto
 import com.evolution.casino.domain.{Casino, CasinoId, CasinoName}
-import com.evolution.infrastructure.http.Controller
 
 class CasinoController(casinoService: CasinoService) extends Controller {
   // get: api/casinos

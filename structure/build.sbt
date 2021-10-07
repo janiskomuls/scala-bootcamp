@@ -9,7 +9,17 @@ lazy val root = project
   .settings(
     name := "App Structure",
     normalizedName := "app-structure",
-  )
+  ).aggregate(user, casino)
+
+lazy val `user-casino` = project
+  .dependsOn(`user-api`, casino)
+
+lazy val user = project
+  .dependsOn(`user-api`)
+
+lazy val `user-api` = project
+
+lazy val casino = project
 
 /*
 
