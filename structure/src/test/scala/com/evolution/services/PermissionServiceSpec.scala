@@ -1,7 +1,8 @@
 package com.evolution.services
 
-import com.evolution.domain.{Permission, PermissionName}
-import com.evolution.repository.UserRepository
+import com.evolution.user.permission.PermissionService
+import com.evolution.user.permission.domain.{Permission, PermissionName}
+import com.evolution.user.UserRepository
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
