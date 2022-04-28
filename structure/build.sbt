@@ -2,28 +2,28 @@ ThisBuild / scalaVersion := "2.13.8"
 
 ThisBuild / version := "1.1"
 
-lazy val root = project
-  .in(file("."))
-  .settings(
-    name := "App Structure",
-    normalizedName := "app-structure",
-    libraryDependencies ++= Dependencies.All,
-    Test / testForkedParallel := true,
-    Compile / packageDoc / publishArtifact := false,
-    Compile / doc / sources := Seq.empty,
-    Test / publishArtifact := false
-  )
-  .enablePlugins(DockerPlugin, JavaServerAppPackaging)
-  .aggregate(domain, api) // `sbt test` will execute tests of root + domain and api modules
-
-lazy val api = project
-  .enablePlugins(DockerPlugin, JavaServerAppPackaging)
-  .dependsOn(domain, utils) // transitive dependencies
-
-lazy val domain = project
-  .settings(libraryDependencies ++= Seq(Dependencies.PlayJson))
-
-lazy val utils = project
+//lazy val root = project
+//  .in(file("."))
+//  .settings(
+//    name := "App Structure",
+//    normalizedName := "app-structure",
+//    libraryDependencies ++= Dependencies.All,
+//    Test / testForkedParallel := true,
+//    Compile / packageDoc / publishArtifact := false,
+//    Compile / doc / sources := Seq.empty,
+//    Test / publishArtifact := false
+//  )
+//  .enablePlugins(DockerPlugin, JavaServerAppPackaging)
+//  .aggregate(domain, api) // `sbt test` will execute tests of root + domain and api modules
+//
+//lazy val api = project
+//  .enablePlugins(DockerPlugin, JavaServerAppPackaging)
+//  .dependsOn(domain, utils) // transitive dependencies
+//
+//lazy val domain = project
+//  .settings(libraryDependencies ++= Seq(Dependencies.PlayJson))
+//
+//lazy val utils = project
 
 /*
 // packaged by type application
@@ -48,20 +48,29 @@ lazy val dto = project
 
  */
 
-/*
 // packaged by feature application
 
 lazy val app = project
-  .aggregate(user, group, permission, casino)
-  // .dependsOn(user, group, permission, casino)
-  // .dependsOn(user, casino)
+  .in(file(".")) // root
+  .enablePlugins(DockerPlugin, JavaServerAppPackaging)
+  .aggregate(user, casino, infra)
+// .dependsOn(user, group, permission, casino)
+//  .dependsOn(user, casino)
+
+lazy val backoffice = project
+  .dependsOn(userApi, casinoApi)
 
 lazy val user = project
+  .dependsOn(infra, userApi)
 
-lazy val group = project
-
-lazy val permission = project
+lazy val userApi = project
 
 lazy val casino = project
+  .dependsOn(infra, casinoApi)
 
- */
+lazy val casinoApi = project
+
+lazy val infra = project
+  .settings(
+    libraryDependencies ++= Dependencies.All
+  )
